@@ -6,7 +6,8 @@ window.addEventListener('load', ()=> {
     let timeZone = document.querySelector(".tz");
     let temperature = document.querySelector(".temp-degree");
     let tempDegree = document.querySelector(".degree");
-    let tempUnit = document.querySelector(".temp-degree p");
+    let tempUnit = document.querySelector(".unit");
+    let tempMemo = document.querySelector(".memo");
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
@@ -40,9 +41,11 @@ window.addEventListener('load', ()=> {
                             tempUnit.textContent = "°F";
                             const fah = (celsius * 9/5) + 32;
                             tempDegree.textContent = fah.toFixed(2);
+                            tempMemo.textContent = "Click to celsius";
                         } else {
                             tempUnit.textContent = "°C";
                             tempDegree.textContent = celsius.toFixed(2);
+                            tempMemo.textContent = "Click to fahrenheit";
                         }
 
                     });
