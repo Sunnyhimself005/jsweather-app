@@ -1,0 +1,9 @@
+clear_day = clear sky
+partly_cloudy_day = few clouds 
+
+cloudy = scattered clouds = broken clouds
+rain = shower rain
+sleet = rain = thunderstorm
+snow = snow
+fog = mist
+
