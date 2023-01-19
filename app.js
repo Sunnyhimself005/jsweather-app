@@ -25,7 +25,7 @@ window.addEventListener('load', ()=> {
                 })
                 .then(data => {
 
-                    console.log(data);
+                    // console.log(data);
 
                     const kelvin = data.main.temp;
                     const celsius = kelvin - 273.15;
@@ -94,6 +94,25 @@ window.addEventListener('load', ()=> {
 
    function setColor(mood) {
 
+    if (mood === "clear_day") {
+        document.body.classList.add("clear-day");
+
+    } else if (mood === "partly_cloudy_day") {
+        document.body.classList.add("partly-cloudy");
+
+    } else if (mood === "cloudy") {
+        document.body.classList.add('cloudy');
+
+    } else if (mood === "rain") {
+        document.body.classList.add('rain');
+        
+    } else if (mood === "sleet") {
+        document.body.classList.add('sleet');
+
+    } else if (mood === "snow") {
+        document.body.classList.add('snow');
+
+    } 
     
 
    }
