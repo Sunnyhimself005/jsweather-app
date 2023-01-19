@@ -25,7 +25,7 @@ window.addEventListener('load', ()=> {
                 })
                 .then(data => {
 
-                    console.log(data);
+                    // console.log(data);
 
                     const kelvin = data.main.temp;
                     const celsius = kelvin - 273.15;
@@ -34,7 +34,7 @@ window.addEventListener('load', ()=> {
                     tempDesc.textContent = icon;
                     timeZone.textContent = data.name;
 
-                    setIcons('fog', document.querySelector('.icon1')); 
+                    setIcons(icon, document.querySelector('.icon1')); 
 
                     temperature.addEventListener('click', function() {
                         if(tempUnit.textContent === "°C") {
@@ -59,8 +59,63 @@ window.addEventListener('load', ()=> {
    function setIcons(icon, iconID) {
     const skycons = new Skycons({color: "white"});
 
-    const  currentIcon = icon.replace(/-/g, "_").toUpperCase();
+    switch (icon) {
+        case "clear sky":
+           icon = "clear_day"; 
+            break;
+        case "few clouds":
+           icon = "partly_cloudy_day"; 
+            break;
+        case "scattered clouds":
+        case "broken clouds":
+           icon = "cloudy"; 
+            break;
+        case "shower rain":
+           icon = "rain"; 
+            break;
+        case "rain":
+        case "thunderstorm":
+           icon = "sleet"; 
+            break;
+        case "mist":
+        case "haze":
+           icon = "fog"; 
+            break;
+    
+       
+    }
+
+    setColor(icon);
+
+    const  currentIcon = icon.toUpperCase();
     skycons.play();
     return skycons.set(iconID, Skycons[currentIcon]);
    }
+
+   function setColor(mood) {
+
+    if (mood === "clear_day") {
+        document.body.classList.add("clear-day");
+
+    } else if (mood === "partly_cloudy_day") {
+        document.body.classList.add("partly-cloudy");
+
+    } else if (mood === "cloudy") {
+        document.body.classList.add('cloudy');
+
+    } else if (mood === "rain") {
+        document.body.classList.add('rain');
+        
+    } else if (mood === "sleet") {
+        document.body.classList.add('sleet');
+
+    } else if (mood === "snow") {
+        document.body.classList.add('snow');
+
+    } 
+    
+
+   }
+
+
 });
