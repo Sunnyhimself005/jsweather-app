@@ -30,7 +30,7 @@ window.addEventListener('load', ()=> {
                     const kelvin = data.main.temp;
                     const celsius = kelvin - 273.15;
                     const icon = data.weather[0].description;
-                    tempDegree.textContent = celsius.toFixed(2) + '°';
+                    tempDegree.textContent = Math.floor(celsius) + '°';
                     tempDesc.textContent = icon;
                     timeZone.textContent = data.name;
 
@@ -40,11 +40,11 @@ window.addEventListener('load', ()=> {
                         if(tempUnit.textContent === "C") {
                             tempUnit.textContent = "F";
                             const fah = (celsius * 9/5) + 32;
-                            tempDegree.textContent = fah.toFixed(2) + '°';
+                            tempDegree.textContent = Math.floor(fah) + '°';
                             tempMemo.textContent = "Click to celsius";
                         } else {
                             tempUnit.textContent = "C";
-                            tempDegree.textContent = celsius.toFixed(2) + '°';
+                            tempDegree.textContent = Math.floor(celsius) + '°';
                             tempMemo.textContent = "Click to fahrenheit";
                         }
 
